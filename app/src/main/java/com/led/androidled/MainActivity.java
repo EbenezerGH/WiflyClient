@@ -41,6 +41,9 @@ public class MainActivity extends Activity {
                 case R.id.down:
                     out.println("0");
                     break;
+                case R.id.stop:
+                    out.println("2");
+                    break;
             }
 
         } catch (UnknownHostException e) {
