@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 
     private PrintWriter out;
 
-    private int value;
+    int value = 0;
 
     private static final int SERVERPORT = 2000;
     private static final String SERVER_IP = "1.2.3.4";
@@ -34,13 +34,12 @@ public class MainActivity extends Activity {
 
         txt = (TextView) findViewById(R.id.voltage);
         bar = (SeekBar) findViewById(R.id.seekBar);
-        bar.setMax(255);
+        bar.setMax(100);
 
 
         bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -52,9 +51,7 @@ public class MainActivity extends Activity {
                                           boolean fromUser) {
 
                 value = seekBar.getProgress();
-                txt.setText("Value: "+value);
-
-                out.println(value);
+                txt.setText("Value: " + value);
 
             }
         });
@@ -75,9 +72,11 @@ public class MainActivity extends Activity {
                 case R.id.up:
                     out.println("1");
                     break;
+
                 case R.id.down:
                     out.println("0");
                     break;
+
                 case R.id.stop:
                     out.println("2");
                     break;
