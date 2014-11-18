@@ -3,6 +3,8 @@ package com.led.androidled;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -15,6 +17,12 @@ import java.net.UnknownHostException;
 public class MainActivity extends Activity {
 
     private Socket socket;
+    private SeekBar bar;
+    private TextView txt;
+
+    private PrintWriter out;
+
+    private int value;
 
     private static final int SERVERPORT = 2000;
     private static final String SERVER_IP = "1.2.3.4";
@@ -24,12 +32,41 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
 
+        txt = (TextView) findViewById(R.id.voltage);
+        bar = (SeekBar) findViewById(R.id.seekBar);
+        bar.setMax(255);
+
+
+        bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+
+                value = seekBar.getProgress();
+                txt.setText("Value: "+value);
+
+                out.println(value);
+
+            }
+        });
+
         new Thread(new ClientThread()).start();
+
+
     }
 
     public void onClick(View view) {
         try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(
+            out = new PrintWriter(new BufferedWriter(
                     new OutputStreamWriter(socket.getOutputStream())),
                     true
             );
