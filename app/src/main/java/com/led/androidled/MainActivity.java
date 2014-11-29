@@ -72,15 +72,27 @@ public class MainActivity extends Activity {
                 case R.id.up:
                     out.println("1");
                     break;
-
                 case R.id.down:
                     out.println("0");
                     break;
-
                 case R.id.stop:
                     out.println("2");
                     break;
+                case R.id.button:
+                    out.println("3");
+                    break;
+                case R.id.button2:
+                    out.println("4");
+                    break;
+                case R.id.button3:
+                    out.println("5");
+                    break;
+                case R.id.button4:
+                    out.println("6");
+                    break;
             }
+
+            out.flush();
 
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -98,7 +110,6 @@ public class MainActivity extends Activity {
 
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
-
                 socket = new Socket(serverAddr, SERVERPORT);
 
             } catch (UnknownHostException e1) {
