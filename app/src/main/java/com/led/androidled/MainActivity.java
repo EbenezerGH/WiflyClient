@@ -70,25 +70,16 @@ public class MainActivity extends Activity {
 
             switch (view.getId()) {
                 case R.id.up:
-                    out.println("1");
-                    break;
-                case R.id.down:
-                    out.println("0");
-                    break;
-                case R.id.stop:
                     out.println("2");
                     break;
-                case R.id.button:
+                case R.id.down:
+                    out.println("1");
+                    break;
+                case R.id.stop:
                     out.println("3");
                     break;
-                case R.id.button2:
+                case R.id.button:
                     out.println("4");
-                    break;
-                case R.id.button3:
-                    out.println("5");
-                    break;
-                case R.id.button4:
-                    out.println("6");
                     break;
             }
 
