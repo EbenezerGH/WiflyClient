@@ -3,8 +3,6 @@ package com.led.androidled;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -17,12 +15,10 @@ import java.net.UnknownHostException;
 public class MainActivity extends Activity {
 
     private Socket socket;
-    private SeekBar bar;
-    private TextView txt;
+
 
     private PrintWriter out;
 
-    private int value = 0;
     private boolean m1, m2, m3 = false;  //defining motors/stops
 
     private static final int SERVERPORT = 2000;
