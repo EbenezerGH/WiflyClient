@@ -22,7 +22,8 @@ public class MainActivity extends Activity {
 
     private PrintWriter out;
 
-    int value = 0;
+    private int value = 0;
+    private boolean m1, m2, m3, s1, s2, s3, s4 = false;  //defining motors/stops
 
     private static final int SERVERPORT = 2000;
     private static final String SERVER_IP = "1.2.3.4";
@@ -69,21 +70,47 @@ public class MainActivity extends Activity {
             );
 
             switch (view.getId()) {
-                case R.id.up:
-                    out.println("2");
+                case R.id.motor1:
+                    if (m1) {
+                        out.println("1");
+                        m1 = false;
+                    } else {
+                        out.print("2");
+                        m1 = true;
+                    }
                     break;
-                case R.id.down:
-                    out.println("1");
+                case R.id.motor2:
+                    if (m2) {
+                        out.println("4");
+                        m2 = false;
+                    } else {
+                        out.print("5");
+                        m2 = true;
+                    }
                     break;
-                case R.id.stop:
+                case R.id.motor3:
+                    if (m3) {
+                        out.println("7");
+                        m3 = false;
+                    } else {
+                        out.print("8");
+                        m3 = true;
+                    }
+                    break;
+                case R.id.stop1:
                     out.println("3");
                     break;
-                case R.id.button:
-                    out.println("4");
+                case R.id.stop2:
+                    out.println("6");
+                    break;
+                case R.id.stop3:
+                    out.println("9");
+                    break;
+                case R.id.stopall:
+                    out.println("10");
                     break;
             }
 
-            out.flush();
 
         } catch (UnknownHostException e) {
             e.printStackTrace();

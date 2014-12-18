@@ -1,97 +1,158 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true">
+    android:layout_centerHorizontal="true"
+    android:id="@+id/">
 
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pulley 1"
+            android:id="@+id/textView"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pulley 2"
+            android:id="@+id/textView2"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pulley 3"
+            android:id="@+id/textView3"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:gravity="center_vertical|center_horizontal"
+        android:id="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/motor1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="go"
+            android:layout_gravity="left|top"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+
+        <Button
+            android:id="@+id/motor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:layout_gravity="right|top"
+            android:layout_marginLeft="12dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="12dp"
+            android:text="go" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/motor3"
+            android:layout_gravity="center"
+            android:onClick="onClick"
+            android:layout_below="@+id/motor2"
+            android:layout_alignLeft="@+id/motor2"
+            android:layout_alignStart="@+id/motor2"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="go" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout3">
+
+        <Button
+            android:id="@+id/stop1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="stop"
+            android:layout_gravity="left|top"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+
+        <Button
+            android:id="@+id/stop2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:layout_gravity="right|top"
+            android:layout_marginLeft="12dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="12dp"
+            android:text="stop" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stop3"
+            android:layout_gravity="center"
+            android:onClick="onClick"
+            android:layout_below="@+id/stop2"
+            android:layout_alignLeft="@+id/stop2"
+            android:layout_alignStart="@+id/stop2"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="stop" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/down"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="onClick"
-        android:text="Going DOWN"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="48dp" />
-
-    <Button
-        android:id="@+id/up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="onClick"
-        android:text="Going UP"
-        android:layout_gravity="right|top"
-        android:layout_marginRight="48dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop"
-        android:id="@+id/stop"
-        android:layout_gravity="center"
+        android:text="Stop all"
+        android:id="@+id/stopall"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         android:onClick="onClick" />
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_gravity="center_horizontal|bottom"
-        android:indeterminate="false"
-        android:layout_marginBottom="72dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/voltage"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="48dp" />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:layout_gravity="right|bottom">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:id="@+id/button"
-            android:onClick="onClick" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2"
-            android:id="@+id/button2"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/button3"
-            android:layout_toEndOf="@+id/button3"
-            android:onClick="onClick" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3"
-            android:id="@+id/button3"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button4"
-            android:layout_toEndOf="@+id/button4"
-            android:onClick="onClick" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4"
-            android:id="@+id/button4"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button"
-            android:layout_toEndOf="@+id/button"
-            android:onClick="onClick" />
-    </RelativeLayout>
-
-</FrameLayout>
+</RelativeLayout>
