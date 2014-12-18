@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
     private PrintWriter out;
 
     private int value = 0;
-    private boolean m1, m2, m3, s1, s2, s3, s4 = false;  //defining motors/stops
+    private boolean m1, m2, m3 = false;  //defining motors/stops
 
     private static final int SERVERPORT = 2000;
     private static final String SERVER_IP = "1.2.3.4";
@@ -33,29 +33,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
 
-        txt = (TextView) findViewById(R.id.voltage);
-        bar = (SeekBar) findViewById(R.id.seekBar);
-        bar.setMax(100);
-
-
-        bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // TODO Auto-generated method stub
-
-            }
-
-            public void onProgressChanged(SeekBar seekBar, int progress,
-                                          boolean fromUser) {
-
-                value = seekBar.getProgress();
-                txt.setText("Value: " + value);
-
-            }
-        });
 
         new Thread(new ClientThread()).start();
 
